@@ -4,8 +4,8 @@ import React, { useState } from 'react';
 const App: React.FC = () => {
   const [billingPeriod, setBillingPeriod] = useState<'monthly' | 'annually'>('annually');
 
-  const scrollToPricing = () => {
-    const element = document.getElementById('pricing');
+  const scrollToSection = (id: string) => {
+    const element = document.getElementById(id);
     element?.scrollIntoView({ behavior: 'smooth' });
   };
 
@@ -53,7 +53,7 @@ const App: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
           <div className="text-2xl font-bold text-blue-600">Super Agentes</div>
           <button 
-            onClick={scrollToPricing}
+            onClick={() => scrollToSection('pricing')}
             className="bg-blue-600 text-white px-6 py-2 rounded-lg font-medium hover:bg-blue-700 transition-colors"
           >
             Acessar Plataforma
@@ -72,7 +72,7 @@ const App: React.FC = () => {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button 
-              onClick={scrollToPricing}
+              onClick={() => scrollToSection('pricing')}
               className="px-8 py-4 bg-blue-600 text-white rounded-xl text-lg font-semibold hover:bg-blue-700 shadow-lg shadow-blue-200 transition-all"
             >
               Começar Teste Gratuito
@@ -81,8 +81,8 @@ const App: React.FC = () => {
         </div>
       </header>
 
-      {/* Problem Section */}
-      <section className="py-20 bg-white px-4">
+      {/* Problem Section - Linked as 'Recursos' contextually */}
+      <section id="recursos" className="py-20 bg-white px-4">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl font-bold text-slate-900 mb-4">O desafio de crescer sem perder a eficiência</h2>
@@ -109,8 +109,8 @@ const App: React.FC = () => {
         </div>
       </section>
 
-      {/* Solution Section */}
-      <section className="py-20 bg-slate-900 text-white px-4">
+      {/* Solution Section - Linked as 'Como funciona' */}
+      <section id="como-funciona" className="py-20 bg-slate-900 text-white px-4">
         <div className="max-w-5xl mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">Conheça o Super Agentes: Sua infraestrutura de IA</h2>
           <p className="text-lg text-slate-300 leading-relaxed mb-12 max-w-4xl mx-auto">
@@ -335,7 +335,7 @@ const App: React.FC = () => {
           <h2 className="text-3xl md:text-5xl font-extrabold mb-8">Pronto para liderar a nova era da produtividade?</h2>
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
             <button 
-              onClick={scrollToPricing}
+              onClick={() => scrollToSection('pricing')}
               className="px-10 py-5 bg-white text-blue-600 rounded-2xl text-xl font-bold hover:bg-blue-50 shadow-2xl transition-all w-full sm:w-auto"
             >
               Teste gratuitamente por 15 dias
@@ -345,13 +345,41 @@ const App: React.FC = () => {
       </section>
 
       {/* Footer */}
-      <footer className="py-12 bg-slate-900 text-slate-500 border-t border-slate-800 px-4">
-        <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
-          <div className="text-xl font-bold text-white">Super Agentes</div>
-          <div className="text-sm">© 2024 Super Agentes - Tecnologia e Automação.</div>
-          <div className="flex gap-6 text-sm">
-            <a href="#" className="hover:text-white transition-colors">Termos</a>
-            <a href="#" className="hover:text-white transition-colors">Privacidade</a>
+      <footer className="py-16 bg-black text-white px-4 border-t border-slate-900">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 items-start gap-12">
+          {/* Logo and Copyright */}
+          <div className="flex flex-col gap-6">
+            <div className="flex items-center gap-2">
+              <svg className="w-8 h-8 text-[#FF6B4A]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                <path d="M7 8l-4 4 4 4M17 8l4 4-4 4M13 4l-2 16" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+              <span className="text-2xl font-bold tracking-tight">Super Agentes<span className="text-[10px] align-top">™</span></span>
+            </div>
+            <div className="space-y-1">
+              <p className="text-slate-400 text-sm font-medium">Copyright © 2025 SuperAgentes</p>
+              <p className="text-slate-500 text-xs">Todos os direitos reservados</p>
+            </div>
+          </div>
+
+          {/* Resources and Functionality */}
+          <div className="grid grid-cols-1 gap-4">
+            <button 
+              onClick={() => scrollToSection('recursos')}
+              className="text-slate-300 hover:text-white transition-colors text-sm font-medium text-left"
+            >
+              Recursos
+            </button>
+            <button 
+              onClick={() => scrollToSection('como-funciona')}
+              className="text-slate-300 hover:text-white transition-colors text-sm font-medium text-left"
+            >
+              Como funciona
+            </button>
+          </div>
+
+          {/* Privacy Policies */}
+          <div className="flex md:justify-end">
+            <a href="#" className="text-slate-300 hover:text-white transition-colors text-sm font-medium">Políticas de Privacidade</a>
           </div>
         </div>
       </footer>
