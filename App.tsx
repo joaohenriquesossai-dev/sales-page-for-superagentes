@@ -75,7 +75,7 @@ const App: React.FC = () => {
               onClick={() => scrollToSection('pricing')}
               className="px-8 py-4 bg-blue-600 text-white rounded-xl text-lg font-semibold hover:bg-blue-700 shadow-lg shadow-blue-200 transition-all"
             >
-              Começar Teste Gratuito
+              Escolher Plano
             </button>
           </div>
         </div>
@@ -194,14 +194,8 @@ const App: React.FC = () => {
               
               <div className="space-y-3">
                 <button 
-                  onClick={() => handleOpenLink(links.operacional.trial[billingPeriod])}
-                  className="w-full py-3 bg-[#FF6B4A] text-white font-bold rounded-lg text-sm hover:opacity-90 transition-opacity"
-                >
-                  Teste por 15 dias grátis
-                </button>
-                <button 
                   onClick={() => handleOpenLink(links.operacional.subscribe[billingPeriod])}
-                  className="w-full py-3 bg-[#1A1A1A] text-slate-400 font-bold rounded-lg text-sm hover:text-white transition-colors"
+                  className="w-full py-3 bg-[#FF6B4A] text-white font-bold rounded-lg text-sm hover:opacity-90 transition-opacity"
                 >
                   {billingPeriod === 'monthly' ? 'Assinar Mensal' : 'Assinar Anual'}
                 </button>
@@ -338,7 +332,7 @@ const App: React.FC = () => {
               onClick={() => scrollToSection('pricing')}
               className="px-10 py-5 bg-white text-blue-600 rounded-2xl text-xl font-bold hover:bg-blue-50 shadow-2xl transition-all w-full sm:w-auto"
             >
-              Teste gratuitamente por 15 dias
+              Começar Agora
             </button>
           </div>
         </div>
@@ -377,9 +371,8 @@ const App: React.FC = () => {
             </button>
           </div>
 
-          {/* Privacy Policies */}
+          {/* Removed Privacy Policies Button as per request */}
           <div className="flex md:justify-end">
-            <a href="#" className="text-slate-300 hover:text-white transition-colors text-sm font-medium">Políticas de Privacidade</a>
           </div>
         </div>
       </footer>
